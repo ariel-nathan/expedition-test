@@ -102,16 +102,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
   },
   button: {
     backgroundColor: "black",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 50,
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
   },
 
   text: {

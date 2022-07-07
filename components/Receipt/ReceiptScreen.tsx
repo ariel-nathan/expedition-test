@@ -86,7 +86,6 @@ const ReceiptScreen = ({
                 >
                   <Image
                     source={require("../../assets/images/profile-picture.jpg")}
-                    alt="Profile Picture"
                     style={{
                       width: "100%",
                       height: "100%",

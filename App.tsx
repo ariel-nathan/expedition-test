@@ -16,6 +16,8 @@ import GooglePlacesInput from "./components/GooglePlacesInput";
 import ConfirmScreen from "./components/ConfirmScreen";
 import ReceiptScreen from "./components/ReceiptScreen";
 
+import CompassSVG from "./components/SVG/CompassSVG";
+
 interface RegionInterface {
   latitude: number;
   longitude: number;
@@ -107,11 +109,7 @@ export default function App() {
         </MapView>
 
         <TouchableOpacity style={styles.returnToMe} onPress={returnToMe}>
-          {/* <Text>return</Text> */}
-          <Image
-            style={styles.returnToMeIcon}
-            source={require("./assets/images/icons8-near-me-96.png")}
-          ></Image>
+          <CompassSVG color="black"></CompassSVG>
         </TouchableOpacity>
 
         {confirmPark && (

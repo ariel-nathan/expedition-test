@@ -1,6 +1,26 @@
-import { Dimensions, StyleSheet, View, Text } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 
 import styled from "styled-components/native";
+
+import CameraSVG from "./SVG/CameraSVG";
+import CloseSVG from "./SVG/CloseSVG";
+import InfoArrowSVG from "./SVG/InfoArrowSVG";
+import ChatBubbleSVG from "./SVG/ChatBubbleSVG";
+import ClockSVG from "./SVG/ClockSVG";
+import DirectionSVG from "./SVG/DirectionSVG";
+import StartSVG from "./SVG/StartSVG";
+import EndSVG from "./SVG/EndSVG";
+import HelpSVG from "./SVG/HelpSVG";
+import ReceiptSVG from "./SVG/ReceiptSVG";
+import MoreSVG from "./SVG/MoreSVG";
+import ParkingIconSVG from "./SVG/ParkingIconSVG";
 
 const ReceiptScreenContainer = styled.View`
   position: absolute;
@@ -123,7 +143,7 @@ const ReceiptTopContainer = styled.View`
   justify-content: space-around;
   align-items: center;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 `;
 
 const ReceiptBottomContainer = styled.View`
@@ -135,8 +155,9 @@ const ReceiptBottomContainer = styled.View`
 `;
 
 const ParkingIconContainer = styled.View`
-  height: 14px;
-  width: 290px;
+  position: absolute;
+  left: 18px;
+  top: -13px;
 `;
 
 const ParkingIconStick = styled.View`
@@ -187,14 +208,6 @@ const ThreeDotsContainer = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const Dot = styled.View`
-  width: 6px;
-  height: 6px;
-  background-color: black;
-  border-radius: 100%;
-  margin-top: 2px;
-`;
-
 const DateContainer = styled.View`
   width: 100%;
   height: 30%;
@@ -209,6 +222,7 @@ const DateFromContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-left: 24px;
 `;
 
 const DateDivider = styled.View`
@@ -221,6 +235,7 @@ const DateToContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-right: 24px;
 `;
 
 const InfoContainer = styled.View`
@@ -252,7 +267,7 @@ const Info = styled.TouchableOpacity`
   justify-content: space-between;
   align-items: center;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 24px;
 `;
 
 const UserInfoContainer = styled.View`
@@ -289,7 +304,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
   return (
     <ReceiptScreenContainer style={styles.receiptContainer}>
       <CloseButton onPress={() => setShowReceipt(false)}>
-        <Text style={{ fontFamily: "Rubik", fontSize: 30 }}>X</Text>
+        <CloseSVG></CloseSVG>
       </CloseButton>
 
       <ReceiptContainer>
@@ -318,20 +333,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
         <Receipt>
           <ReceiptTopContainer>
             <ParkingIconContainer>
-              <ParkingIconStick>
-                <ParkingIcon>
-                  <Text
-                    style={{
-                      fontFamily: "RubikBold",
-                      fontSize: 15,
-                      color: "#F6C62D",
-                      transform: [{ rotate: "-45deg" }],
-                    }}
-                  >
-                    P
-                  </Text>
-                </ParkingIcon>
-              </ParkingIconStick>
+              <ParkingIconSVG />
             </ParkingIconContainer>
 
             <ReceiptHeadingContainer>
@@ -355,9 +357,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                 </Text>
               </View>
               <ThreeDotsContainer>
-                <Dot></Dot>
-                <Dot></Dot>
-                <Dot></Dot>
+                <MoreSVG />
               </ThreeDotsContainer>
             </ReceiptHeadingContainer>
 
@@ -373,16 +373,27 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                 </Text>
               </View>
               <View>
-                <Text
+                <TouchableOpacity
                   style={{
-                    fontFamily: "RubikSemiBold",
-                    fontSize: 14,
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
                     marginLeft: 23,
-                    color: "#118AA3",
                   }}
                 >
-                  Get Directions
-                </Text>
+                  <DirectionSVG />
+                  <Text
+                    style={{
+                      fontFamily: "RubikSemiBold",
+                      fontSize: 14,
+                      marginLeft: 8.33,
+                      color: "#118AA3",
+                    }}
+                  >
+                    Get Directions
+                  </Text>
+                </TouchableOpacity>
               </View>
             </ReceiptSubtitle>
           </ReceiptTopContainer>
@@ -406,7 +417,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                   >
                     Start Date
                   </Text>
-                  <Text>{">"}</Text>
+                  <StartSVG />
                 </DateHeader>
                 <Date>
                   <Text
@@ -439,7 +450,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                   >
                     End Date
                   </Text>
-                  <Text>{"<"}</Text>
+                  <EndSVG />
                 </DateHeader>
                 <Date>
                   <Text
@@ -487,19 +498,11 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                       alignItems: "center",
                     }}
                   >
-                    <Text
-                      style={{
-                        fontFamily: "Rubik",
-                        fontSize: 14,
-                        color: "#F6C62D",
-                      }}
-                    >
-                      @
-                    </Text>
+                    <HelpSVG />
                   </View>
                   <Text
                     style={{
-                      marginLeft: 10,
+                      marginLeft: 12,
                       fontFamily: "Rubik",
                       fontSize: 14,
                     }}
@@ -507,7 +510,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                     View parking instructions
                   </Text>
                 </View>
-                <Text>{"->"}</Text>
+                <InfoArrowSVG />
               </Info>
               <Info
                 style={{
@@ -534,19 +537,11 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                       alignItems: "center",
                     }}
                   >
-                    <Text
-                      style={{
-                        fontFamily: "Rubik",
-                        fontSize: 14,
-                        color: "#F6C62D",
-                      }}
-                    >
-                      @
-                    </Text>
+                    <ClockSVG />
                   </View>
                   <Text
                     style={{
-                      marginLeft: 10,
+                      marginLeft: 12,
                       fontFamily: "Rubik",
                       fontSize: 14,
                     }}
@@ -554,7 +549,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                     Purchase additional months
                   </Text>
                 </View>
-                <Text>{"->"}</Text>
+                <InfoArrowSVG />
               </Info>
               <Info>
                 <View
@@ -576,19 +571,11 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                       alignItems: "center",
                     }}
                   >
-                    <Text
-                      style={{
-                        fontFamily: "Rubik",
-                        fontSize: 14,
-                        color: "#F6C62D",
-                      }}
-                    >
-                      @
-                    </Text>
+                    <ReceiptSVG />
                   </View>
                   <Text
                     style={{
-                      marginLeft: 10,
+                      marginLeft: 12,
                       fontFamily: "Rubik",
                       fontSize: 14,
                     }}
@@ -596,26 +583,57 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
                     View receipt for $272.95
                   </Text>
                 </View>
-                <Text>{"->"}</Text>
+                <InfoArrowSVG />
               </Info>
             </InfoContainer>
             <UserInfoContainer>
               <UserInfo>
-                <Text>AVA</Text>
-                <View>
-                  <Text>Annie W.</Text>
-                  <Text>Owner</Text>
+                <View
+                  style={{
+                    width: 40,
+                    height: 40,
+                    borderRadius: "100%",
+                    backgroundColor: "black",
+                  }}
+                >
+                  <Image
+                    source={require("../assets/images/profile-picture.jpg")}
+                    alt="Profile Picture"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      borderRadius: "100%",
+                    }}
+                  />
+                </View>
+                <View
+                  style={{
+                    marginLeft: 12,
+                  }}
+                >
+                  <Text
+                    style={{
+                      marginLeft: 14,
+                      fontFamily: "RubikSemiBold",
+                      fontSize: 14,
+                    }}
+                  >
+                    Annie W.
+                  </Text>
+                  <Text
+                    style={{
+                      marginLeft: 12,
+                      fontFamily: "Rubik",
+                      fontSize: 14,
+                      color: "gray",
+                    }}
+                  >
+                    Owner
+                  </Text>
                 </View>
               </UserInfo>
               <ChatBubble>
-                <View
-                  style={{
-                    width: 24,
-                    height: 24,
-                    borderRadius: 9,
-                    backgroundColor: "black",
-                  }}
-                ></View>
+                <ChatBubbleSVG />
               </ChatBubble>
             </UserInfoContainer>
           </ReceiptBottomContainer>
@@ -623,15 +641,7 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
 
         <ConfirmVehicleButton>
           <View>
-            <Text
-              style={{
-                fontFamily: "RubikBold",
-                fontSize: 17,
-                color: "white",
-              }}
-            >
-              CAM
-            </Text>
+            <CameraSVG></CameraSVG>
           </View>
           <Text
             style={{

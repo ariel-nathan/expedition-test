@@ -36,7 +36,7 @@ This was a pretty challenging and fun build to make. I had a lot of fun working 
 
 I started with an empty project. I ran `expo init` and created a new project.
 
-The project called to recreate a screen created in Figma. I wanted to take it a step further and challenge myself to create a mini app experience.
+The project called to recreate a screen made in Figma. I wanted to take it a step further and challenge myself to create a mini app experience.
 
 I broke it up into three stages:
 

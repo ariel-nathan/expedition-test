@@ -12,7 +12,7 @@ import * as Font from "expo-font";
 import MapView, { Marker } from "react-native-maps";
 
 import GooglePlacesInput from "./components/GooglePlacesInput";
-import ReceiptScreen from "./components/ReceiptScreen";
+import ReceiptScreen from "./components/Receipt/ReceiptScreen";
 import CameraView from "./components/CameraView";
 
 import CompassSVG from "./components/SVG/CompassSVG";
@@ -23,6 +23,16 @@ interface RegionInterface {
   longitude: number;
   latitudeDelta: number;
   longitudeDelta: number;
+}
+
+interface ReceiptDataInterface {
+  heading: string;
+  subtitle: string;
+  spot: string;
+  startDate: string;
+  startTime: string;
+  endDate: string;
+  endTime: string;
 }
 
 export default function App() {
@@ -41,6 +51,15 @@ export default function App() {
   const [showPicture, setShowPicture] = useState(false);
   const [picture, setPicture] = useState(null);
   const [complete, setComplete] = useState(false);
+  const [receiptData, setReceiptData] = useState<ReceiptDataInterface>({
+    heading: "Nice! Your monthly parking is confirmed.",
+    subtitle: "Your reservation details are below",
+    spot: "Spot 21",
+    startDate: "Feb 20",
+    startTime: "2022 (12:00AM)",
+    endDate: "Mar 20",
+    endTime: "2022 (12:00AM)",
+  });
 
   const loadFonts = async () => {
     await Font.loadAsync({
@@ -125,6 +144,7 @@ export default function App() {
             setShowCamera={setShowCamera}
             complete={complete}
             setComplete={setComplete}
+            receiptData={receiptData}
           />
         )}
 

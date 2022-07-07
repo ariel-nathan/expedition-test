@@ -13,8 +13,10 @@ import MapView, { Marker } from "react-native-maps";
 
 import GooglePlacesInput from "./components/GooglePlacesInput";
 import ReceiptScreen from "./components/ReceiptScreen";
+import CameraView from "./components/CameraView";
 
 import CompassSVG from "./components/SVG/CompassSVG";
+import PictureView from "./components/PictureView";
 
 interface RegionInterface {
   latitude: number;
@@ -35,6 +37,10 @@ export default function App() {
   const [showReceipt, setShowReceipt] = useState<boolean>(false);
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [search, setSearch] = useState<string>("second");
+  const [showCamera, setShowCamera] = useState(false);
+  const [showPicture, setShowPicture] = useState(false);
+  const [picture, setPicture] = useState(null);
+  const [complete, setComplete] = useState(false);
 
   const loadFonts = async () => {
     await Font.loadAsync({
@@ -114,7 +120,28 @@ export default function App() {
         )}
 
         {showReceipt && (
-          <ReceiptScreen setShowReceipt={setShowReceipt} search={search} />
+          <ReceiptScreen
+            setShowReceipt={setShowReceipt}
+            search={search}
+            setShowCamera={setShowCamera}
+            complete={complete}
+            setComplete={setComplete}
+          />
+        )}
+
+        {showCamera && (
+          <CameraView
+            setShowCamera={setShowCamera}
+            setShowPicture={setShowPicture}
+            setPicture={setPicture}
+          />
+        )}
+        {showPicture && (
+          <PictureView
+            setShowPicture={setShowPicture}
+            picture={picture}
+            setComplete={setComplete}
+          />
         )}
       </View>
     );

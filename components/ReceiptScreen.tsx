@@ -22,7 +22,13 @@ import ReceiptSVG from "./SVG/ReceiptSVG";
 import MoreSVG from "./SVG/MoreSVG";
 import ParkingIconSVG from "./SVG/ParkingIconSVG";
 
-const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
+const ReceiptScreen = ({
+  setShowReceipt,
+  search,
+  setShowCamera,
+  complete,
+  setComplete,
+}: any) => {
   return (
     <ReceiptScreenContainer style={styles.receiptContainer}>
       <CloseButton onPress={() => setShowReceipt(false)}>
@@ -361,20 +367,45 @@ const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
           </ReceiptBottomContainer>
         </Receipt>
 
-        <ConfirmVehicleButton>
-          <View>
-            <CameraSVG></CameraSVG>
-          </View>
-          <Text
-            style={{
-              fontFamily: "RubikBold",
-              fontSize: 17,
-              color: "white",
+        {!complete && (
+          <ConfirmVehicleButton
+            onPress={() => {
+              setShowCamera(true);
             }}
           >
-            IDENTIFY YOUR VEHICLE
-          </Text>
-        </ConfirmVehicleButton>
+            <View>
+              <CameraSVG></CameraSVG>
+            </View>
+
+            <Text
+              style={{
+                fontFamily: "RubikBold",
+                fontSize: 17,
+                color: "white",
+              }}
+            >
+              IDENTIFY YOUR VEHICLE
+            </Text>
+          </ConfirmVehicleButton>
+        )}
+        {complete && (
+          <ConfirmVehicleButton
+            onPress={() => {
+              setShowReceipt(false);
+              setComplete(false);
+            }}
+          >
+            <Text
+              style={{
+                fontFamily: "RubikBold",
+                fontSize: 17,
+                color: "white",
+              }}
+            >
+              COMPLETE
+            </Text>
+          </ConfirmVehicleButton>
+        )}
       </ReceiptContainer>
     </ReceiptScreenContainer>
   );

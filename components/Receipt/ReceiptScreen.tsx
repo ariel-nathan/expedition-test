@@ -12,6 +12,15 @@ import InfoRows from "./InfoRows";
 
 import { ReceiptDataInterface } from "../../utils/types";
 
+interface IProps {
+  setShowReceipt: any;
+  search: string;
+  setShowCamera: any;
+  complete: boolean;
+  setComplete: any;
+  receiptData: ReceiptDataInterface;
+}
+
 const ReceiptScreen = ({
   setShowReceipt,
   search,
@@ -19,14 +28,7 @@ const ReceiptScreen = ({
   complete,
   setComplete,
   receiptData,
-}: {
-  setShowReceipt: any;
-  search: string;
-  setShowCamera: any;
-  complete: boolean;
-  setComplete: any;
-  receiptData: ReceiptDataInterface;
-}) => {
+}: IProps) => {
   return (
     <ReceiptScreenContainer style={styles.receiptContainer}>
       <CloseButton onPress={() => setShowReceipt(false)}>

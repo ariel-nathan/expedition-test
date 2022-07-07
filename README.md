@@ -114,7 +114,7 @@ Install the expo-cli
 
 2. Install dependencies
    ```sh
-   expo install
+   yarn install
    ```
 3. Enter your Google API Key in `.env.example` and rename it to `.env`
 

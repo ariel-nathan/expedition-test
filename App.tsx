@@ -5,7 +5,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image,
 } from "react-native";
 import * as Location from "expo-location";
 import Constants from "expo-constants";
@@ -13,7 +12,6 @@ import * as Font from "expo-font";
 import MapView, { Marker } from "react-native-maps";
 
 import GooglePlacesInput from "./components/GooglePlacesInput";
-import ConfirmScreen from "./components/ConfirmScreen";
 import ReceiptScreen from "./components/ReceiptScreen";
 
 import CompassSVG from "./components/SVG/CompassSVG";
@@ -34,7 +32,6 @@ export default function App() {
   });
   const [location, setLocation] = useState<any>(null);
   const [confirmPark, setConfirmPark] = useState<boolean>(false);
-  const [showConfirm, setShowConfirm] = useState<boolean>(false);
   const [showReceipt, setShowReceipt] = useState<boolean>(false);
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [search, setSearch] = useState<string>("second");
@@ -83,13 +80,8 @@ export default function App() {
   };
 
   const handleConfirmPark = () => {
-    setShowConfirm(true);
-  };
-
-  const handleYes = () => {
-    setShowConfirm(false);
-    setConfirmPark(false);
     setShowReceipt(true);
+    setConfirmPark(false);
   };
 
   if (!fontsLoaded) {
@@ -121,20 +113,8 @@ export default function App() {
           </TouchableOpacity>
         )}
 
-        {showConfirm && (
-          <ConfirmScreen
-            setShowConfirm={setShowConfirm}
-            handleYes={handleYes}
-            search={search}
-          />
-        )}
-
         {showReceipt && (
-          <ReceiptScreen
-            setShowReceipt={setShowReceipt}
-            handleYes={handleYes}
-            search={search}
-          />
+          <ReceiptScreen setShowReceipt={setShowReceipt} search={search} />
         )}
       </View>
     );

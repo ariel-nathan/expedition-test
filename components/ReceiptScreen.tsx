@@ -22,284 +22,6 @@ import ReceiptSVG from "./SVG/ReceiptSVG";
 import MoreSVG from "./SVG/MoreSVG";
 import ParkingIconSVG from "./SVG/ParkingIconSVG";
 
-const ReceiptScreenContainer = styled.View`
-  position: absolute;
-  z-index: 2;
-  background-color: rgba(247, 202, 62, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const CloseButton = styled.TouchableOpacity`
-  position: absolute;
-  top: 58px;
-  left: 26px;
-`;
-
-const ReceiptContainer = styled.View`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  width: 90%;
-  height: 80%;
-  top: 112px;
-  padding: 20px;
-`;
-
-const Header = styled.View``;
-
-const Subtitle = styled.View`
-  margin-top: 8px;
-  width: 343px;
-  height: 18px;
-  color: rgba(0, 0, 0, 0.6);
-`;
-
-const Receipt = styled.View`
-  width: 343px;
-  flex: 1;
-  margin-top: 24px;
-  border-radius: 8px;
-`;
-
-const Divider = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 343px;
-  height: 16px;
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: white;
-`;
-
-const CircleLeft = styled.View`
-  position: relative;
-  width: 16px;
-  height: 16px;
-  background-color: rgba(247, 202, 62, 1);
-  border-radius: 100%;
-  left: -8px;
-  z-index: 4;
-`;
-
-const CircleRight = styled.View`
-  position: relative;
-  width: 16px;
-  height: 16px;
-  background-color: rgba(247, 202, 62, 1);
-  border-radius: 100%;
-  right: -8px;
-  z-index: 4;
-`;
-
-const DashedDivider = styled.View`
-  position: absolute;
-  left: 8px;
-  width: 327px;
-  height: 1px;
-  z-index: 3;
-  background-color: #ebeef1;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-const DashedDividerCenterLine = styled.View`
-  top: 0;
-  width: 1px;
-  height: 20px
-  z-index: 3;
-  background-color: #ebeef1;
-`;
-
-const ConfirmVehicleButton = styled.TouchableOpacity`
-  margin-top: 24px;
-  width: 343px;
-  height: 60px;
-  background-color: black;
-  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.13);
-  border-radius: 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  padding-left: 22px;
-  padding-right: 22px;
-`;
-
-const ReceiptTopContainer = styled.View`
-  height: 40%;
-  width: 343px;
-  background-color: white;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding-top: 20px;
-  padding-bottom: 30px;
-`;
-
-const ReceiptBottomContainer = styled.View`
-  height: 57%;
-  width: 343px;
-  background-color: white;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-`;
-
-const ParkingIconContainer = styled.View`
-  position: absolute;
-  left: 18px;
-  top: -13px;
-`;
-
-const ParkingIconStick = styled.View`
-  position: absolute;
-  left: 0;
-  height: 15px;
-  width: 2px;
-  background-color: black;
-  margin-top: -10px;
-`;
-
-const ParkingIcon = styled.View`
-  width: 24px;
-  height: 24px;
-  background-color: black;
-  border-radius: 6px;
-  position: absolute;
-  left: -11px;
-  top: -18px;
-  transform: rotate(45deg);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const ReceiptHeadingContainer = styled.View`
-  width: 290px;
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-const ReceiptSubtitle = styled.View`
-  width: 290px;
-  height: 14px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-`;
-
-const ThreeDotsContainer = styled.TouchableOpacity`
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const DateContainer = styled.View`
-  width: 100%;
-  height: 30%;
-  display: flex;
-  flex-direction: row;
-  border-bottom-width: 1px;
-  border-bottom-color: #ebeef1;
-`;
-
-const DateFromContainer = styled.View`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 24px;
-`;
-
-const DateDivider = styled.View`
-  width: 1px;
-  background-color: #ebeef1;
-`;
-
-const DateToContainer = styled.View`
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 24px;
-`;
-
-const InfoContainer = styled.View`
-  width: 100%;
-  height: 50%;
-  padding-left: 24px;
-`;
-
-const DateHeader = styled.View`
-  display: flex;
-  flex-direction: row;
-  width: 80%;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Date = styled.View`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 80%;
-  flex: 1;
-`;
-
-const Info = styled.TouchableOpacity`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 10px;
-  padding-right: 24px;
-`;
-
-const UserInfoContainer = styled.View`
-  width: 100%;
-  height: 20%;
-  background-color: #f4f6f8;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  padding-left: 24px;
-  padding-right: 24px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const UserInfo = styled.View`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  flex: 1;
-`;
-
-const ChatBubble = styled.View`
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-`;
-
 const ReceiptScreen = ({ setShowReceipt, handleYes, search }: any) => {
   return (
     <ReceiptScreenContainer style={styles.receiptContainer}>
@@ -664,5 +386,283 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height,
   },
 });
+
+const ReceiptScreenContainer = styled.View`
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(247, 202, 62, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CloseButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 58px;
+  left: 26px;
+`;
+
+const ReceiptContainer = styled.View`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  height: 80%;
+  top: 112px;
+  padding: 20px;
+`;
+
+const Header = styled.View``;
+
+const Subtitle = styled.View`
+  margin-top: 8px;
+  width: 343px;
+  height: 18px;
+  color: rgba(0, 0, 0, 0.6);
+`;
+
+const Receipt = styled.View`
+  width: 343px;
+  flex: 1;
+  margin-top: 24px;
+  border-radius: 8px;
+`;
+
+const Divider = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 343px;
+  height: 16px;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
+`;
+
+const CircleLeft = styled.View`
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(247, 202, 62, 1);
+  border-radius: 100%;
+  left: -8px;
+  z-index: 4;
+`;
+
+const CircleRight = styled.View`
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(247, 202, 62, 1);
+  border-radius: 100%;
+  right: -8px;
+  z-index: 4;
+`;
+
+const DashedDivider = styled.View`
+  position: absolute;
+  left: 8px;
+  width: 327px;
+  height: 1px;
+  z-index: 3;
+  background-color: #ebeef1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const DashedDividerCenterLine = styled.View`
+  top: 0;
+  width: 1px;
+  height: 20px
+  z-index: 3;
+  background-color: #ebeef1;
+`;
+
+const ConfirmVehicleButton = styled.TouchableOpacity`
+  margin-top: 24px;
+  width: 343px;
+  height: 60px;
+  background-color: black;
+  box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.13);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 22px;
+  padding-right: 22px;
+`;
+
+const ReceiptTopContainer = styled.View`
+  height: 40%;
+  width: 343px;
+  background-color: white;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 30px;
+`;
+
+const ReceiptBottomContainer = styled.View`
+  height: 57%;
+  width: 343px;
+  background-color: white;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+`;
+
+const ParkingIconContainer = styled.View`
+  position: absolute;
+  left: 18px;
+  top: -13px;
+`;
+
+const ParkingIconStick = styled.View`
+  position: absolute;
+  left: 0;
+  height: 15px;
+  width: 2px;
+  background-color: black;
+  margin-top: -10px;
+`;
+
+const ParkingIcon = styled.View`
+  width: 24px;
+  height: 24px;
+  background-color: black;
+  border-radius: 6px;
+  position: absolute;
+  left: -11px;
+  top: -18px;
+  transform: rotate(45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ReceiptHeadingContainer = styled.View`
+  width: 290px;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const ReceiptSubtitle = styled.View`
+  width: 290px;
+  height: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const ThreeDotsContainer = styled.TouchableOpacity`
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const DateContainer = styled.View`
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+  border-bottom-width: 1px;
+  border-bottom-color: #ebeef1;
+`;
+
+const DateFromContainer = styled.View`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 24px;
+`;
+
+const DateDivider = styled.View`
+  width: 1px;
+  background-color: #ebeef1;
+`;
+
+const DateToContainer = styled.View`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 24px;
+`;
+
+const InfoContainer = styled.View`
+  width: 100%;
+  height: 50%;
+  padding-left: 24px;
+`;
+
+const DateHeader = styled.View`
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Date = styled.View`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  flex: 1;
+`;
+
+const Info = styled.TouchableOpacity`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 24px;
+`;
+
+const UserInfoContainer = styled.View`
+  width: 100%;
+  height: 20%;
+  background-color: #f4f6f8;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const UserInfo = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+`;
+
+const ChatBubble = styled.View`
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+`;
 
 export default ReceiptScreen;

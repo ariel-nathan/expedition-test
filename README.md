@@ -3,10 +3,10 @@
 <br />
 <div align="center">
 
-<h3 align="center">Expedition React Native Assesment</h3>
+<h3 align="center">Expedition Co. React Native Assesment</h3>
 
   <p align="center">
-    A assessment for Expedition in React Native    
+    An assessment for Expedition Co. in React Native    
     <br />
     <br />
     <a href="https://expo.dev/@arielnathan/expedition-test?serviceType=classic&distribution=expo-go">View Demo</a>

@@ -18,22 +18,7 @@ import CameraView from "./components/CameraView";
 import CompassSVG from "./components/SVG/CompassSVG";
 import PictureView from "./components/PictureView";
 
-interface RegionInterface {
-  latitude: number;
-  longitude: number;
-  latitudeDelta: number;
-  longitudeDelta: number;
-}
-
-interface ReceiptDataInterface {
-  heading: string;
-  subtitle: string;
-  spot: string;
-  startDate: string;
-  startTime: string;
-  endDate: string;
-  endTime: string;
-}
+import { RegionInterface, ReceiptDataInterface } from "./utils/types";
 
 export default function App() {
   const [region, setRegion] = useState<RegionInterface>({
@@ -47,10 +32,10 @@ export default function App() {
   const [showReceipt, setShowReceipt] = useState<boolean>(false);
   const [fontsLoaded, setFontsLoaded] = useState(false);
   const [search, setSearch] = useState<string>("second");
-  const [showCamera, setShowCamera] = useState(false);
-  const [showPicture, setShowPicture] = useState(false);
+  const [showCamera, setShowCamera] = useState<boolean>(false);
+  const [showPicture, setShowPicture] = useState<boolean>(false);
   const [picture, setPicture] = useState(null);
-  const [complete, setComplete] = useState(false);
+  const [complete, setComplete] = useState<boolean>(false);
   const [receiptData, setReceiptData] = useState<ReceiptDataInterface>({
     heading: "Nice! Your monthly parking is confirmed.",
     subtitle: "Your reservation details are below",

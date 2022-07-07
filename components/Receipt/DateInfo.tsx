@@ -4,7 +4,9 @@ import styled from "styled-components/native";
 import StartSVG from "../SVG/StartSVG";
 import EndSVG from "../SVG/EndSVG";
 
-const DateInfo = ({ receiptData }: any) => {
+import { ReceiptDataInterface } from "../../utils/types";
+
+const DateInfo = ({ receiptData }: { receiptData: ReceiptDataInterface }) => {
   return (
     <>
       <DateContainer>

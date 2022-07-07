@@ -6,7 +6,7 @@ import DirectionSVG from "../SVG/DirectionSVG";
 import MoreSVG from "../SVG/MoreSVG";
 import ParkingIconSVG from "../SVG/ParkingIconSVG";
 
-const ReceiptTop = ({ search, spot }: any) => {
+const ReceiptTop = ({ search, spot }: { search: string; spot: string }) => {
   return (
     <>
       <ParkingIconContainer>

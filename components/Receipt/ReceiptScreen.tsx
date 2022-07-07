@@ -10,6 +10,8 @@ import ReceiptTop from "./ReceiptTop";
 import DateInfo from "./DateInfo";
 import InfoRows from "./InfoRows";
 
+import { ReceiptDataInterface } from "../../utils/types";
+
 const ReceiptScreen = ({
   setShowReceipt,
   search,
@@ -17,7 +19,14 @@ const ReceiptScreen = ({
   complete,
   setComplete,
   receiptData,
-}: any) => {
+}: {
+  setShowReceipt: any;
+  search: string;
+  setShowCamera: any;
+  complete: boolean;
+  setComplete: any;
+  receiptData: ReceiptDataInterface;
+}) => {
   return (
     <ReceiptScreenContainer style={styles.receiptContainer}>
       <CloseButton onPress={() => setShowReceipt(false)}>

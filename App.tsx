@@ -49,7 +49,6 @@ export default function App() {
       RubikSemiBold: require("./assets/fonts/Rubik-SemiBold.ttf"),
     })
       .then(() => {
-        console.log("Fonts loaded");
         setFontsLoaded(true);
       })
       .catch((err) => {

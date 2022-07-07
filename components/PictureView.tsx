@@ -8,7 +8,6 @@ import {
 } from "react-native";
 
 const PictureView = ({ setShowPicture, picture, setComplete }: any) => {
-  console.log(picture);
   return (
     <View
       style={{
